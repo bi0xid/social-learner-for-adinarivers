@@ -1,0 +1,21 @@
+<div class="modal-overlay special">
+	<p class="close-modal">x</p>
+
+	<div class="modal-content">
+		<div class="modal-body">
+			{{#if data.video}}
+				<div class="video-iframe" data-id="{{ data.video }}">
+					<div id="wistia_{{ data.video }}" class="wistia_embed">
+						Strange! A video should appear right here. Pease reload the page and try again.
+					</div>
+				</div>
+			{{else}}
+				<p class="todo-desc">{{ data.desc }}</p>
+			{{/if}}
+		</div>
+
+		<div class="modal-footer">
+			<button data-id="{{ data.id }}" data-course="{{ data.course }}" type="button" class="mark-as-done">Let's do it!</button>
+		</div>
+	</div>
+</div>

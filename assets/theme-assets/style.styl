@@ -1,0 +1,113 @@
+@import 'nib'
+
+@import '../plugins/animate.css'
+
+@import '../includes/helpers.styl'
+
+@import './sections/login/style.styl'
+@import './sections/dashboard/style.styl'
+@import './sections/course-view/style.styl'
+@import './sections/wistia-video/style.styl'
+@import './sections/lesson-view/style.styl'
+@import './sections/fixed-footer/style.styl'
+@import './sections/profile-page/style.styl'
+@import './sections/post-comments/style.styl'
+@import './sections/finished-page/style.styl'
+@import './sections/messages-widget/style.styl'
+@import './sections/lessons-progress-bar/style.styl'
+
+@import './sidebar/style.styl'
+@import './sidebar/todos/style.styl'
+@import './sidebar/friends/style.styl'
+@import './sidebar/todos/congrat_modal/style.styl'
+
+@require './sections/header/style.styl'
+
+h1, h2, h3, h4, p, span
+	line-height 1.5
+	font-family Lato !important
+
+html[data-fullheight="true"]
+	width 100%
+	height 100%
+
+	body
+		width 100%
+		height 100%
+
+body, html
+	margin 0
+	padding 0
+
+#wistia-video-wrapper
+	wistia-video-style()
+
+#profile-page
+	profile-page-style()
+
+#modal-congrat
+	congrat-todo-style()
+
+#fixed-footer
+	fixed-footer-style()
+
+#messages-header-content
+	messages-widget-style()
+
+#dashboard_page
+	dashboard-page-style()
+
+#lessons-progress
+	lessons-progress-bar-style()
+
+#login-page
+	login-style()
+
+.modal-overlay
+	modal-style()
+
+.page-full-width article.page
+	padding 0 !important
+
+html
+	overflow-x hidden
+
+	&.no-scroll
+		overflow-y hidden
+
+body
+	overflow-x hidden
+	background-color #FFF !important
+
+	#main
+		width 100%
+		height 100%
+
+	&.single-course
+		course-view-style()
+
+	&.single-lesson
+		lesson-style()
+
+	&.page-template-finished-course-page
+		finished-course-page()
+
+#right-sidebar
+	right-sidebar-style()
+
+body.page-template-page-fullwidth
+	#primary
+		width 100% !important
+
+	#secondary
+		display none !important
+
+/* AJAX Comments Style */
+#ajax-comments
+	comments-style()
+
+#post-comment-ajax
+	comment-form-style()
+
+#new_comments_handler
+	new-comment-label-style()

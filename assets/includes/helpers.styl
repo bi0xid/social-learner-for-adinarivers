@@ -1,0 +1,188 @@
+$css-transition-time = .3s
+
+$color-gris        = #D6D6D6
+$color-gris-oscuro = #444444
+$color-gris-claro  = #F5F5F0
+$color-gris-borde  = #C6C6C3
+$color-header      = #232323
+$color-gris-hover  = #444444
+$color-amarillo    = #F4EB49
+$color-lila        = #D757F6
+$color-sidebar     = #F7F6F6
+$color-azul        = #428BCA
+$color-todo-done   = #FF5D55
+$color-naranja     = #FF806C
+$color-verde       = #1BE5A8
+
+$socials        = 'facebook' 'twitter' 'linkedin' 'google-plus' 'youtube' 'instagram' 'pinterest'
+$socials-colors =   #3b5998   #55acee   #007bb5     #dd4b39      #bb0000    #125688     #cb2027
+
+base-size = 8
+base-sizes(i = 0)
+	prev = 0
+	res  = 1
+
+	i = i + base-size
+
+	for n in 1..i
+		tmp  = res
+		res  = res + prev
+		prev = tmp
+
+	unit(res, px)
+
+flex-inline()
+	display flex
+	flex-flow row wrap
+	justify-content space-around
+
+flex-vertical()
+	display flex
+	align-items center
+	justify-content center
+
+sidebar-open-style()
+	padding-right 285px
+
+	@media(max-width 800px)
+		opacity .3
+		pointer-events none !important
+		padding-right initial
+
+placeholder()
+	&::-webkit-input-placeholder
+		{block}
+	&:-moz-placeholder
+		{block}
+	&::-moz-placeholder
+		{block}
+	&:-ms-input-placeholder
+		{block}
+
+responsive-block()
+	padding base-sizes(2) base-sizes(5)
+
+	@media(max-width 1200px)
+		padding base-sizes(2) base-sizes(4)
+
+	@media(max-width 992px)
+		padding base-sizes(2) base-sizes(3)
+
+	@media(max-width 768px)
+		padding base-sizes(2) base-sizes(2)
+
+	@media(max-width 768px)
+		padding base-sizes(2) base-sizes(0)
+
+button-style($color)
+	border 0
+	color #FFF
+	padding 10px
+	cursor pointer
+	text-transform uppercase
+	background-color $color
+	transition background-color $css-transition-time
+
+	&:hover
+		background-color lightness($color, 50%)
+
+circle(size)
+	width unit(size, 'px')
+	height unit(size, 'px')
+	border-radius unit(size / 2, 'px')
+	
+absolute-center()
+	absolute top 50% left 50%
+	transform translate(-50%,-50%)
+	
+top-arrow()
+	bottom 100%
+	left 50%
+	border solid transparent
+	content " "
+	height 0
+	width 0
+	position absolute
+	pointer-events none
+	border-color rgba(255, 255, 255, 0)
+	border-bottom-color #FFF
+	border-width 10px
+	margin-left -10px
+
+top-left-arrow()
+	bottom 100%
+	left 20%
+	border solid transparent
+	content " "
+	height 0
+	width 0
+	position absolute
+	pointer-events none
+	border-color rgba(255, 255, 255, 0)
+	border-bottom-color $color-azul
+	border-width 10px
+	margin-left -10px
+	transition border-bottom-color $css-transition-time
+
+thumbs-vote-style($color)
+	.thumbs-rating-up, .thumbs-rating-down
+		color $color
+		background-color transparent
+
+		&:hover
+			color #000
+			&:before
+				color #000
+
+		&:before
+			color $color
+			margin-right 5px
+			font-size inherit
+			text-rendering auto
+			display inline-block
+			font normal normal normal 18px/1 FontAwesome
+
+	.thumbs-rating-up:before
+		content "\f087"
+
+	.thumbs-rating-down:before
+		content "\f088"
+
+	.thumbs-rating-already-voted
+		padding 0
+		left -10px
+		cursor auto
+		width 150px
+		color $color
+		position absolute
+
+		&:hover
+			color #000
+
+special-label-style($color)
+	padding-left 10px
+	padding-bottom 5px
+	border-left 3px solid $color
+	absolute top 89px left base-sizes(2)
+
+	@media(max-width 1200px)
+		left base-sizes(0)
+
+	@media(max-width 992px)
+		top 20px
+		padding 0
+		border-left 0
+		display block
+		left base-sizes(3)
+
+		h2, h4
+			display inline-block
+
+		h4
+			margin-left 10px
+
+	@media(max-width 768px)
+		left base-sizes(0)
+
+	h2, h4
+		color  $color

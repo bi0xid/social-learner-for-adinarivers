@@ -1,0 +1,61 @@
+<li class="todo" data-type="2">
+	<h3>Quiz ToDo</h3>
+	<span class="toggle-indicator" aria-hidden="true"></span>
+
+	<div class="content" style="display:none;">
+		<div class="top_form">
+			<input type="text" name="task_name" placeholder="Task name"></input>
+			<input type="number" name="task_points" placeholder="Task points"></input>
+			<input type="text" name="quiz_id" placeholder="Quiz ID"></input>
+		</div>
+
+		<div class="bottom_form">
+			<div class="intro">
+				<h5>Introduction</h5>
+				<label>Add an introduction for the ToDo, you can use a single video or a description with an image/gif.</label>
+				<div class="intro_content">
+					<div class="image">
+						<button class="button button-large change-media">Change Image</button>
+						<img class="intro_image" src="" alt="Introduction image">
+					</div>
+					<input type="text" class="intro_title" placeholder="Intro Title">
+					<input type="text" class="intro_video" placeholder="Wistia ID - Optional -">
+					<textarea name="intro_text" placeholder="Introduction text"></textarea>
+				</div>
+			</div>
+
+			<div class="outro_pass">
+				<h5>Pass outro</h5>
+				<label>Add an outro for this Quiz ToDo is the user <strong>PASS</strong> the Quiz.</label>
+				<div class="outro_pass_content">
+					<div class="image">
+						<button class="button button-large change-media">Change Image</button>
+						<img class="outro_pass_image" src="" alt="Outro image">
+					</div>
+					<input type="text" class="outro_pass_title" placeholder="Outro Pass Title">
+					<input type="text" class="outro_pass_video" placeholder="Wistia ID - Optional -">
+					<textarea name="outro_pass_text" placeholder="Introduction text"></textarea>
+				</div>
+			</div>
+
+			<div class="outro_fail">
+				<h5>Fail outro</h5>
+				<label>Add an outro for this Quiz ToDo is the user <strong>FAIL</strong> the Quiz.</label>
+				<div class="outro_fail_content">
+					<div class="image">
+						<button class="button button-large change-media">Change Image</button>
+						<img class="outro_fail_image" src="" alt="Outro image">
+					</div>
+					<input type="text" class="outro_fail_title" placeholder="Outro Fail Title">
+					<input type="text" class="outro_fail_video" placeholder="Wistia ID - Optional -">
+					<textarea name="outro_fail_text" placeholder="Introduction text"></textarea>
+				</div>
+			</div>
+		</div>
+
+		<div class="actions">
+			<button type="submit" class="button button-large save-task">Save</button>
+			<button type="submit" class="button button-large remove-task">Remove</button>
+		</div>
+	</div>
+</li>

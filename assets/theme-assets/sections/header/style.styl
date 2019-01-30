@@ -1,0 +1,221 @@
+$menu-avatar-size = 40px;
+$left-separation  = 15px;
+
+#right-panel
+	margin-top 0 !important
+
+#left-panel-inner
+	padding-top 0 !important
+
+#panels
+	margin-top 56px
+
+#masthead
+	z-index 20000
+	display block !important
+	position relative !important
+	background-color $color-header
+
+	.header-desktop
+		height base-sizes(1)
+
+		.right-side
+			flex-vertical()
+			transition opacity .4s
+			transform translate(0,-50%)
+			absolute top 49% right $left-separation
+
+			.sign-in
+				color #FFF
+				cursor pointer
+				font-size 16px
+				margin-right $left-separation
+
+				&:hover
+					text-decoration underline
+
+			#messages-header-toggler, #sidebar-toggle
+				cursor pointer
+				margin-left 20px
+				position relative
+				width base-sizes(1)
+				height base-sizes(1)
+
+				&.open
+					background-color $color-azul
+
+				@media(min-width 800px)
+					&:hover
+						background-color $color-azul
+
+				.fa
+					color #FFF
+					font-size 22px
+					absolute-center()
+
+				.circle
+					width 15px
+					height 15px
+					border-radius 10px
+					absolute top 10px right 8px
+					background-color $color-todo-done
+
+					span
+						color #FFF
+						font-size 12px
+						absolute top 47% left 48%
+						transform translate(-50%,-50%)
+
+			#user-avatar
+				height 56px
+				cursor pointer
+				padding 0 15px
+				position relative
+				transition background-color $css-transition-time
+
+				&:hover, &.open
+					background-color $color-azul
+
+				flex-vertical()
+
+				img
+					width 40px
+					height 40px
+					border-radius 20px
+
+				a
+					color #FFF
+					margin-left 10px
+
+				ul
+					width 100%
+					display none
+					background-color #FFF
+					transform translate(-50%,0)
+					absolute bottom -99px left 50%
+					border-left 1px solid $color-gris-claro
+					border-right 1px solid $color-gris-claro
+					border-bottom 1px solid $color-gris-claro
+
+					li a
+						margin 0
+						color #000
+						padding 15px
+						display block
+						text-align center
+
+						&:hover
+							text-decoration: none
+							color $color-gris-hover
+
+				&.responsive ul
+					bottom -50px
+
+		.left-side
+			flex-vertical()
+			absolute top 50% left $left-separation
+			transform translate(0,-50%)
+
+			#logo
+				a
+					display block
+					height $menu-avatar-size
+
+					img.small
+						display none
+
+					img
+						max-width $menu-avatar-size
+						max-height $menu-avatar-size
+
+			#breadcrumb
+				color #FFF
+				margin-left $left-separation
+
+				span
+					font-size 16px
+					display inline-block
+
+					a
+						color #FFF
+
+						&:hover
+							text-decoration underline
+
+				strong
+					font-size 16px
+
+				.separation
+					margin 0 5px
+
+			#header-menu
+				position relative
+				margin-left $left-separation
+
+				.menu-toggler
+					color #FFF
+					cursor pointer
+
+					&:hover .fa, &.open .fa
+						color #999
+						transition color $css-transition-time
+
+					.fa
+						font-size 10px
+						display inline-block
+
+				.menu-top_menu-container
+					display none
+					border-radius 5px
+					background-color #FFF
+					transform translate(-50%,0)
+					absolute bottom -119px left 50%
+					border-left 1px solid $color-gris
+					border-right 1px solid $color-gris
+					border-bottom 1px solid $color-gris
+
+					&:after
+						top-arrow()
+
+					li a
+						padding 15px
+						display block
+						text-align center
+
+						&:hover
+							color $color-gris-hover
+
+		&.modal-in
+			.left-side
+				position absolute
+
+			.right-side
+				opacity .2
+
+		#todo-name
+			width 100%
+			display none
+			text-align center
+			absolute top 15px left 50%
+			transform translate(-50%,0)
+
+			p
+				color #FFF
+				font-size 18px
+				font-weight bold
+
+		@media(max-width 800px)
+			#todo-name
+				display block
+
+			.left-side
+				#breadcrumb:not(.responsive), #header-menu
+					display none
+
+			.right-side
+				#user-avatar:not(.responsive)
+					display none
+
+		@media(max-width 400px)
+			#breadcrumb.responsive
+				display none

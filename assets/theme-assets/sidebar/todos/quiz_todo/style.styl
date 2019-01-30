@@ -1,0 +1,239 @@
+quiz-todo-style()
+	.quiz-questions
+		height 100%
+
+	.modal-footer
+		width 100%
+		bottom -60px
+		flex-inline()
+		position absolute
+
+		.central-buttons
+			width 60%
+			margin auto
+			position relative
+
+			.questions-progress
+				width 100%
+				flex-vertical()
+				absolute-center()
+				transition opacity $css-transition-time
+
+				&.out
+					opacity 0
+					pointer-events none
+
+				li
+					margin auto
+					display block
+
+					.circle
+						width 13px
+						height 13px
+						display block
+						cursor pointer
+						background-color #FFF
+						border-radius unit(13 / 2, 'px')
+						transition all $css-transition-time
+
+					&.active .circle, &:hover .circle
+						background-color lightness(#FFF, 20%)
+
+		.prev, .next, .end-quiz
+			width 15%
+			padding 5px
+			height 30px
+			margin auto
+			position relative
+			background-color #FFF
+			color $color-gris-oscuro
+
+			&:focus
+				outline none
+
+			.fa
+				font-size 30px
+				absolute-center()
+
+			&.out
+				opacity 0
+				pointer-events none
+
+		.end-quiz
+			absolute top 0 right 13px
+
+		.loading
+			opacity 0
+			color #FFF
+			font-size 25px
+			pointer-events none
+			absolute top 3px right 57px
+			transition opacity $css-transition-time
+			
+			&.in
+				opacity 1
+
+	.quiz-questions
+		position absolute
+
+		li.quiz
+			width 100%
+			position absolute
+			text-align center
+
+			&.out
+				opacity 0
+				pointer-events none
+
+			&.gap-fill
+				.answer
+					margin-bottom 15px
+
+				.gapfill-answer-pre, .gapfill-answer-post
+					font-weight 100
+
+				.gapfill-answer-gap
+					color #FFF
+					font-size 18px
+					border-radius 0
+					text-align center
+					border-bottom 1px solid #FFF
+
+			&.file-upload
+				.question
+					display block
+
+				input[type="file"]
+					color #FFF
+					margin 15px 0
+					font-size 16px
+
+				.max_upload_size
+					color #FFF
+					font-size 16px
+					margin-bottom 15px
+
+			&.single-line
+				input
+					color #000
+					margin 15px 0
+					background-color rgba(255, 255, 255, 0.77)
+
+			&.multiple-choice, &.boolean
+				label
+					padding 2px 20px
+					border-radius 5px
+					transition background-color $css-transition-time
+					background-color lightness($color-todo-done, 80%)
+
+					&:hover
+						background-color $color-todo-done
+
+				input[type="checkbox"], input[type="radio"]
+					display none
+
+					&:checked + label
+						background-color $color-todo-done
+
+			span, p, label
+				color #FFF
+
+			.question
+				font-size 22px
+
+			p
+				margin 5px 0
+				font-size 18px
+
+			.answers
+				flex-inline()
+				margin 15px 0
+
+				li
+					margin auto
+					font-size 18px
+
+					label
+						cursor pointer
+
+					input
+						vertical-align middle
+
+			textarea
+				width 100%
+				color #000
+				margin 15px 0
+				background-color rgba(255, 255, 255, 0.77)
+
+	.section
+		padding 0
+		height 100%
+		position relative
+
+		.start-quiz
+			position relative
+
+			&.out
+				pointer-events none
+
+				span
+					opacity 0
+
+				.loading
+					opacity 1
+
+			.loading
+				opacity 0
+				font-size 18px
+				absolute top 8px left 45%
+				transition opacity $css-transition-time
+
+		&.out
+			display none !important
+
+		&.image
+			flex-vertical()
+
+			img, .content
+				width 40%
+				margin auto
+
+			.content
+				text-align center
+
+				h5
+					font-size 22px
+
+				p
+					margin 15px 0
+					font-size 18px
+
+				h5, p
+					color #FFF
+					line-height 1.5
+
+				button
+					font-size 18px
+					background-color $color-todo-done
+
+		&.video
+			text-align center
+
+			.video_iframe, .wistia_embed
+				height 100%
+
+			.video_iframe
+				transition opacity $css-transition-time
+
+				&.out
+					opacity 0
+
+			.loading
+				absolute-center()
+				transition opacity $css-transition-time
+
+				&.out
+					opacity 0
+
+				.fa
+					color $color-gris-claro

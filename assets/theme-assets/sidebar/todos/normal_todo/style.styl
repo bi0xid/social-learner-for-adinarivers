@@ -1,0 +1,60 @@
+normal-todo-style()
+	.modal-body .section
+		padding 0
+		height 100%
+		position relative
+
+		&.image
+			flex-vertical()
+
+			img, .content
+				width 40%
+				margin auto
+
+			.content
+				text-align center
+
+				h5
+					font-size 22px
+
+				p
+					margin 15px 0
+					font-size 18px
+
+				h5, p
+					color #FFF
+					line-height 1.5
+
+				button
+					font-size 18px
+					background-color $color-todo-done
+
+		&.video
+			text-align center
+
+			.video_iframe, .wistia_embed
+				height 100%
+
+			.video_iframe
+				transition opacity $css-transition-time
+
+				&.out
+					opacity 0
+
+			.loading
+				absolute-center()
+				transition opacity $css-transition-time
+
+				&.out
+					opacity 0
+
+				.fa
+					color $color-gris-claro
+
+			button
+				font-size 18px
+				margin-top 15px
+				background-color $color-todo-done
+
+		&.out
+			display none

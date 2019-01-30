@@ -1,0 +1,49 @@
+lesson-style()
+	#content
+		padding 0
+
+		.header-lesson
+			transition all $css-transition-time
+
+			.video
+				padding 0
+				margin-bottom 0
+				background-color initial
+
+				iframe
+					width 100%
+
+			&.sidebar-open
+				sidebar-open-style()
+
+		.lesson-content
+			position relative
+			responsive-block()
+
+			.lesson-counter
+				special-label-style($color-verde)
+
+			h1
+				margin-top 0
+				font-size 34px
+				color $color-gris-oscuro
+				margin-bottom base-sizes(-1)
+
+			p
+				font-size 18px
+				line-height 1.7
+				color $color-gris-oscuro
+
+		.lesson_button_form
+			display none
+
+	.entry.fix
+		margin-bottom 0
+
+	.lesson-comment
+		responsive-block()
+		position relative
+		background-color $color-gris-claro
+
+		.comments-count
+			special-label-style($color-naranja)

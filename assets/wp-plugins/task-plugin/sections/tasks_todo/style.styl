@@ -1,0 +1,107 @@
+tasks-todo-style()
+	h3
+		font-size 22px
+		text-align center
+		margin 0 0 30px 0
+
+	.top_form
+		input
+			width 49%
+
+	.content
+		h5
+			font-size 18px
+			padding-top 15px
+			text-align center
+			border-top 1px solid $color-gris-claro
+
+		label
+			display block
+			text-align center
+			margin-bottom 15px
+
+	.todo_tasks
+		padding 20px 0
+
+		li
+			flex-inline()
+			margin-top 20px
+			padding-top 20px
+			border-top 1px dotted $color-gris
+
+			.task_desc, .task_video, .task_title
+				margin auto
+				margin-bottom 15px
+
+			.left-inputs
+				width 60%
+				margin auto
+				flex-vertical()
+				text-align center
+
+				button
+					margin-bottom: 15px
+
+				.image
+					margin auto
+
+					.img_wrapper
+						width 150px
+						height 115px
+						overflow hidden
+						text-align center
+						background-size contain
+						background-repeat no-repeat
+						background-position center center
+
+				.audio
+					width 60%
+					margin auto
+
+					.audio_wrapper
+						height 115px
+						position relative
+
+						audio
+							absolute-center()
+
+			.right-actions
+				margin auto
+				text-align center
+
+				a
+					display block
+
+					&.order
+						cursor move
+
+	.intro, .outro
+		text-align center
+
+		.trumbowyg-box
+			text-align initial
+
+		h5
+			font-size 18px
+			padding-top 15px
+			text-align center
+			border-top 1px solid $color-gris-claro
+
+		label
+			display block
+			text-align center
+			margin-bottom 15px
+
+		.image
+			flex-inline()
+
+			img, button
+				margin auto
+
+			img
+				max-height 130px
+
+		input[type="text"]
+			width 20%
+			margin-top 15px
+			text-align center

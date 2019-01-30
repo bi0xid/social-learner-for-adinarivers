@@ -1,0 +1,109 @@
+@import 'nib'
+
+@import '../../includes/helpers.styl'
+@import '../../node_modules/toastr/build/toastr.min.css'
+@import '../../node_modules/trumbowyg/dist/ui/trumbowyg.min.css'
+
+@import './sections/quiz_todo/style.styl'
+@import './sections/tasks_todo/style.styl'
+@import './sections/normal_todo/style.styl'
+@import './sections/images_audio_todo/style.styl'
+
+#lessons-task-form
+	.task-list
+		padding-top 30px
+		border-top 1px solid $color-gris
+
+		> li
+			position relative
+			margin-bottom 30px
+			border-bottom 1px solid $color-gris
+
+			.toggle-indicator
+				cursor pointer
+				absolute top 0 right 15px
+				transition all $css-transition-time
+
+				&.open
+					transform rotate(180deg)
+
+			h3
+				cursor pointer
+
+			&.normal
+				normal-todo-style()
+
+			&.images
+				images-audio-todo-style()
+
+			&.tasks
+				tasks-todo-style()
+
+			&.todo
+				quiz-todo-style()
+
+			.top_form
+				flex-inline()
+				text-align center
+				margin-bottom 15px
+
+				input
+					height 40px
+					margin auto
+					width unit(98 / 3, '%')
+
+			.bottom_form
+				margin-bottom 20px
+
+				.trumbowyg-box, .trumbowyg-editor
+					height 140px
+					min-height 100px
+
+				.trumbowyg-editor
+					height 103px
+					padding 10px
+
+			.actions
+				text-align center
+				margin-bottom 20px
+
+				button
+					border none
+					cursor pointer
+					padding 2px 10px
+					text-shadow none
+					transition background-color .3s
+
+					&.update-task, &.save-task
+						color #FFF
+						background-color #2196F3
+
+						&:hover
+							background-color lightness(#2196F3, 30%)
+
+					&.remove-task
+						color #FFF
+						background-color #A7023A
+
+						&:hover
+							background-color lightness(#A7023A, 30%)
+
+#course-task-form
+	ul
+		flex-vertical()
+
+		li
+			margin auto
+			margin-right 20px
+
+			strong, label
+				display block
+
+			label
+				margin 15px 0
+
+			&:not(:last-child)
+				border-right 1px solid $color-gris
+
+			input:not(:last-child)
+				margin-bottom 15px

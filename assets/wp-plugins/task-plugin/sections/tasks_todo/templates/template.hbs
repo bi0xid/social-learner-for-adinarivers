@@ -1,0 +1,53 @@
+<li class="tasks" data-type="3">
+	<h3>Multiple Tasks ToDo</h3>
+	<span class="toggle-indicator" aria-hidden="true"></span>
+
+	<div class="content" style="display:none;">
+		<div class="top_form">
+			<input type="text" name="task_name" placeholder="Task name"></input>
+			<input type="number" name="task_points" placeholder="Task points"></input>
+		</div>
+		<div class="bottom_form">
+			<div class="intro">
+				<h5>Introduction</h5>
+				<label>Add an introduction for the ToDo, you can use a single video or a description with an image/gif.</label>
+				<div class="intro_content">
+					<div class="image">
+						<button class="button button-large change-media">Change Image</button>
+						<img class="intro_image" src="" alt="Introduction image">
+					</div>
+					<input type="text" class="intro_title" placeholder="Intro Title">
+					<input type="text" class="intro_video" placeholder="Wistia ID - Optional -">
+					<textarea name="intro_text" placeholder="Introduction text"></textarea>
+				</div>
+			</div>
+
+			<div class="content">
+				<h5>Main Content</h5>
+				<label>Here you can add all the items you want, each item can be <strong>one wistia video</strong> or <strong>an image followed by a description/audio</strong>. The user will move to the next area when clicking a button.</label>
+				<button type="button" class="add_item button button-large">
+					Add new Item
+				</button>
+				<ul class="todo_tasks"></ul>
+			</div>
+
+			<div class="outro">
+				<h5>Outro</h5>
+				<label>Add an outro for the ToDo.</label>
+				<div class="outro_content">
+					<div class="image">
+						<button class="button button-large change-media">Change Image</button>
+						<img class="outro_image" src="" alt="Outro image">
+					</div>
+					<input type="text" class="outro_title" placeholder="Outro Title">
+					<input type="text" class="outro_video" placeholder="Wistia ID - Optional -">
+					<textarea name="outro_text" placeholder="Introduction text"></textarea>
+				</div>
+			</div>
+		</div>
+		<div class="actions">
+			<button type="submit" class="button button-large save-task">Save</button>
+			<button type="submit" class="button button-large remove-task">Remove</button>
+		</div>
+	</div>
+</li>

@@ -1,0 +1,196 @@
+lessons-progress-bar-style()
+	z-index 1000
+	position relative
+	height base-sizes(1)
+
+	@media(max-width 800px)
+		height 15px
+
+	.line
+		height 2px
+		width 100%
+		absolute-center()
+		background-color $color-gris
+
+		span
+			width 0
+			height 2px
+			display block
+			transition width 1s
+			background-color $color-azul
+
+	.modules
+		width 100%
+		flex-vertical()
+		absolute top 50% left 0
+		transform translate(0, -50%)
+
+		ul.module, ul.finished
+			width 40%
+			z-index 10
+			flex-vertical()
+			margin 0 !important
+
+			&:hover
+				.lessons-menu
+					opacity 1
+
+			.lessons-menu
+				opacity 0
+				width 130px
+				position absolute
+				background-color #FFF
+				transition opacity .3s
+
+				@media(max-width 800px)
+					display none
+
+				ul
+					li
+						display block
+						background-color $color-azul
+						transition background-color $css-transition-time
+
+						a
+							color #FFF
+							padding 15px
+							display block
+
+						&:first-child:after
+							top-left-arrow()
+
+						&.bloqued
+							background-color $color-gris-oscuro
+
+							a
+								cursor default
+								pointer-events none
+
+							&:hover
+								background-color lightness($color-gris-oscuro, 30%)
+
+						&:hover, &.hover-active
+							background-color lightness($color-azul, 30%)
+
+							&:after
+								border-bottom-color lightness($color-azul, 30%)
+
+			.module
+				width 30px
+				color #FFF
+				height 30px
+				font-size 18px
+				flex-vertical()
+				font-weight bold
+				position relative
+				border-radius 20px
+				margin auto !important
+				background-color $color-azul
+				transition background-color $css-transition-time
+
+				.fa, span
+					absolute-center()
+					transition opacity $css-transition-time
+
+				.fa
+					opacity 0
+					font-size 18px
+
+				span
+					opacity 1
+					font-size 16px
+					padding-right 1px
+
+				@media(max-width 800px)
+					width 25px
+					height 25px
+
+					span
+						top 48%
+
+					span, .fa
+						font-size 14px
+
+			.lesson
+				width 15px
+				margin auto
+				height 15px
+				border-radius 10px
+				display inline-block
+				background-color $color-azul
+				transition all $css-transition-time 1s
+
+				a
+					width 15px
+					height 15px
+					display block
+					border-radius 10px
+
+					&.hover-active
+						background-color lightness($color-azul, 30%)
+
+				&.bloqued
+					pointer-events none
+					background-color $color-gris
+
+			&.bloqued
+				.lessons-menu
+					display none
+
+				.module
+					background-color $color-gris
+
+					span
+						opacity 0
+
+					.fa
+						opacity 1
+						color $color-azul
+
+				.lesson
+					opacity 0
+					cursor initial
+					pointer-events none
+
+			&.finished
+				width 15%
+
+				&.out
+					pointer-events none
+
+					li
+						width 30px
+						height 30px
+						border-radius 20px
+						background-color $color-gris
+
+						&:before
+							display none
+							color $color-gris
+
+				li
+					position relative
+
+					a
+						z-index 20
+						color #FFF
+						font-size 16px
+						font-weight bold
+						padding-right 2px
+						absolute-center()
+
+					&:before
+						z-index 10
+						display block
+						content "\f005"
+						color $color-azul
+						absolute-center()
+						font normal normal normal 35px/1 FontAwesome
+
+					@media(max-width 800px)
+						a
+							top 48%
+							font-size 14px
+
+						&:before
+							font-size 30px

@@ -1,0 +1,120 @@
+@import '../../../node_modules/perfect-scrollbar/dist/css/perfect-scrollbar.css'
+
+@import './quiz_todo/style.styl'
+@import './tasks_todo/style.styl'
+@import './normal_todo/style.styl'
+@import './youtube_modal/style.styl'
+@import './carousel_todo/style.styl'
+
+modal-style()
+	width 100%
+	height 100%
+	display none
+	z-index 2000
+	absolute top 0 left 0
+	background-color rgba(0, 0, 0, 0.7)
+
+	&.images-modal
+		images-modal-style()
+
+	&.quiz-modal
+		quiz-todo-style()
+
+	&.normal-todo
+		normal-todo-style()
+
+	&.tasks-todo
+		tasks-todo-style()
+
+	&.youtube
+		youtube-modal-style()
+
+	&.special
+		.video-iframe, .wistia_embed
+			height 100%
+
+		.modal-footer
+			text-align center
+
+			button
+				margin-top 15px
+				background-color $color-todo-done
+
+	p.close-modal
+		color #FFF
+		z-index 200
+		font-size 40px
+		cursor pointer
+		absolute top 0px right 70px
+
+	.modal-content
+		width 90%
+		absolute-center()
+
+		@media(max-width 800px)
+			top 45%
+
+		.modal-body
+			height 100%
+
+task-sidebar-style()
+	position relative
+
+	.todo-count
+		display block
+		position relative
+		height base-sizes(1)
+		background-color $color-naranja
+
+		.content
+			color #FFF
+			font-size 20px
+			absolute top 50% left 18px
+			transform translate(0,-50%)
+
+	.list
+		height 200px
+		overflow hidden
+		position relative
+		background-color $color-gris-claro
+		padding base-sizes() base-sizes(-1)
+
+		a
+			display block
+			position relative
+			border-radius 5px
+			height base-sizes()
+			background-color #FFF
+			color $color-gris-oscuro
+			transition all $css-transition-time
+
+			&:hover
+				background-color #FBFBFB
+
+			span
+				transform translate(0, -50%)
+
+			span:not(.icon)
+				absolute top 50% left 45px
+
+			.icon
+				circle(20)
+				absolute top 50% left 12px
+				background-color $color-gris-borde
+				transition all $css-transition-time
+
+				.fa
+					opacity 0
+					color #FFF
+					absolute-center()
+					transition all $css-transition-time
+
+			&:not(:last-child)
+				margin-bottom 15px
+
+			&.done
+				.icon
+					background-color $color-verde
+
+					.fa
+						opacity 1

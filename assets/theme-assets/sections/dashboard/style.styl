@@ -1,0 +1,84 @@
+dashboard-page-style()
+	#top-header
+		width 100%
+		position relative
+
+		.left-image
+			transform translate(0, -50%)
+			absolute top 50% left base-sizes(1)
+
+			@media(max-width 930px)
+				left -30px
+
+			@media(max-width 840px)
+				display none
+
+			img
+				max-width 500px
+
+		.right-content
+			width 400px
+			absolute top base-sizes(1) right base-sizes(4)	
+
+			@media(max-width 1260px)
+				right base-sizes(3)
+
+			@media(max-width 1050px)
+				right base-sizes(2)
+
+			@media(max-width 990px)
+				right base-sizes(0)
+
+			@media(max-width 840px)
+				top 45%
+				left 50%
+				width 85%
+				transform translate(-50%, -50%)
+
+				h1
+					text-align center
+
+			h1
+				font-weight 100
+				color $color-gris-oscuro
+				margin-bottom base-sizes(0)
+
+			p
+				line-height 1.5
+				color $color-gris-oscuro
+
+			.course_counter_block
+				position relative
+				border-radius 10px
+				height base-sizes(3)
+				background-color #000
+				margin-top base-sizes()
+
+				.background
+					opacity .5
+					height 100%
+					border-radius 10px
+					background-size cover
+					background-repeat no-repeat
+					background-position 10% 25%
+
+				h4
+					color #FFF
+					width 160px
+					font-size 20px
+					absolute top 50% left 15px
+					transform translate(0,-50%)
+
+				.counter
+					color #FFF
+					font-size 22px
+					absolute top 50% right 15px
+					transform translate(0,-50%)
+
+	.dashboard-comment
+		responsive-block()
+		position relative
+		background-color $color-gris-claro
+
+		.comments-count
+			special-label-style($color-naranja)

@@ -1,0 +1,41 @@
+@import './sidebar/activity/style.styl'
+
+right-sidebar-style()
+	width 285px
+	z-index 1500
+	absolute top 0 right -100%
+	background-color $color-gris-borde
+	transition right $css-transition-time
+
+	&.open
+		right 0
+
+	.sidebar-title
+		position relative
+		height base-sizes(1)
+		background-color $color-gris
+
+		p
+			font-size 18px
+			color $color-gris-oscuro
+			absolute top 50% left 18px
+			transform translate(0, -50%)
+
+			@media(max-width 800px)
+				left 50%
+				transform translate(-50%, -50%)
+
+		#sidebar-close
+			display none
+			font-size 40px
+			absolute top 50% left 15px
+			transform translate(0, -50%)
+
+			@media(max-width 800px)
+				display block
+
+	.todos-container
+		task-sidebar-style()
+
+	#sidebar-activity
+		right-sidebar-activity-style()

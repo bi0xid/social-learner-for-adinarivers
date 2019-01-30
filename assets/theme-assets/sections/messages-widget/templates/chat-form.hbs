@@ -1,0 +1,14 @@
+<form id="send-reply" data-currentuser={{ data.currentUser }} action="{{ data.action }}" method="post">
+	<textarea placeholder="Write a message ..." name="content" id="message_content" rows="15" cols="35"></textarea>
+	
+	<input type="hidden" value="" name="bp_msgat_attachment_ids">
+	<input type="submit" name="send" value="Send" id="send_reply_button"/>
+
+	{{{ data.hidden_1 }}}
+
+	{{{ data.nounce1 }}}
+
+	<span class="center-element">
+		<i class="fa fa-circle-o-notch fa-spin out"></i>
+	</span>
+</form>

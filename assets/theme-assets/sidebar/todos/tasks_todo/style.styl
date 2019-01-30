@@ -1,0 +1,96 @@
+tasks-todo-style()
+	.modal-body .section
+		padding 0
+		height 100%
+		position relative
+
+		.fa-angle-left, .fa-angle-right
+			top 50%
+			color #FFF
+			cursor pointer
+			font-size 50px
+			position absolute
+			transform translate(0, -50%)
+			transition color $css-transition-time
+
+			&:hover
+				color #7B7B7B
+
+		.fa-angle-right
+			right 25px
+
+		.fa-angle-left
+			left 25px
+
+		&.image:not(.video)
+			flex-vertical()
+
+			img, .content
+				width 40%
+				margin auto
+
+			.content
+				text-align center
+
+				h5
+					font-size 22px
+
+				p
+					margin 15px 0
+					font-size 18px
+
+				h5, p
+					color #FFF
+					line-height 1.5
+
+				button
+					font-size 18px
+					background-color $color-todo-done
+
+		&.video
+			background none
+			text-align center
+
+			.video_iframe, .wistia_embed
+				height 100%
+				padding 0 35px
+
+			.video_iframe
+				transition opacity $css-transition-time
+
+				&.out
+					opacity 0
+
+			.loading
+				absolute-center()
+				transition opacity $css-transition-time
+
+				&.out
+					opacity 0
+
+				.fa
+					color $color-gris-claro
+
+			button
+				font-size 18px
+				margin-top 15px
+				background-color $color-todo-done
+
+		&.audio
+			text-align center
+
+			h5
+				color #FFF
+				font-size 22px
+				absolute top 0 left 50%
+				transform translate(-50%, 0)
+
+			img
+				max-height 45vh
+				margin-top 45px
+
+			audio
+				margin-top 15px
+
+		&.out
+			display none !important

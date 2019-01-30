@@ -1,0 +1,51 @@
+<div class="modal-overlay quiz-modal" {{#if data.id}}data-id="{{ data.id }}"{{/if}}>
+	<p class="close-modal">x</p>
+	<div class="modal-content">
+
+		{{#each this.content}}
+			{{#ifIsType this 'object'}}
+				<div style="{{ this.style }}" class="section {{#unless this.video}}image{{/unless}} {{ this.class }} {{#if this.video}}video{{/if}}">
+					{{#if this.video}}
+						<div class="video_iframe out" data-id="{{ this.video }}">
+							<div id="wistia_{{ this.video }}" class="wistia_embed">
+								Strange! A video should appear right here. Pease reload the page and try again.
+							</div>
+						</div>
+
+						<div class="loading">
+							<i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+						</div>
+
+						{{{ this.button }}}
+					{{else}}
+						<img src="{{ this.image }}" alt="Intro image">
+						<div class="content">
+							<h5>{{ this.title }}</h5>
+							<p>{{{ this.desc }}}</p>
+							{{{ this.button }}}
+						</div>
+					{{/if}}
+				</div>
+			{{/ifIsType}}
+		{{/each}}
+
+		<ul class="quiz-questions" style="opacity.0;"></ul>
+
+		<div class="modal-footer">
+			<button type="button" class="prev out">
+				<i class="fa fa-angle-double-left" aria-hidden="true"></i>
+			</button>
+
+			<div class="central-buttons">
+				<ul class="questions-progress out"></ul>
+			</div>
+
+			<button type="button" class="next out">
+				<i class="fa fa-angle-double-right" aria-hidden="true"></i>
+			</button>
+
+			<button type="button" class="end-quiz out">Get Results</button>
+			<i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw loading"></i>
+		</div>
+	</div>
+</div>

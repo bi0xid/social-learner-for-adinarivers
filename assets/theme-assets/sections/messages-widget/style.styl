@@ -1,0 +1,230 @@
+@import '../../../node_modules/perfect-scrollbar/dist/css/perfect-scrollbar.css'
+
+messages-widget-style()
+	width 300px
+	height 100px
+	display none
+	overflow hidden
+	margin-top 30px
+	transition height .3s
+	background-color #FFF
+	absolute top 30px right 19px
+
+	&.out
+		pointer-events none
+
+	&.no-header
+		top 0
+		margin 0
+
+	.center-icon
+		absolute top 50% left 50%
+		transform translate(-50%, -50%)
+		transition opacity $css-transition-time
+
+		&.out
+			opacity 0
+
+		.fa-circle-o-notch
+			font-size 18px
+			color $color-gris
+
+	@media(max-width 800px)
+		right 0
+		opacity 0
+		width 100%
+		position fixed
+		display block
+
+	.chat-list
+		opacity 0
+		height 100%
+
+		li
+			height 60px
+			cursor pointer
+			padding 10px 0
+			position relative
+
+			&.no-more
+				flex-vertical()
+
+			&[data-deleted="true"]
+				display none
+
+			&:not(:last-child)
+				border-bottom 1px solid $color-gris-claro
+
+			&:hover
+				background $color-azul
+
+				.msg-content, .msg-content strong a, .time, .msg-content span, &.no-more span
+					color #FFF
+
+			img:not(.emoji)
+				width 40px
+				height 40px
+				border-radius 20px
+				absolute top 50% left 7px
+				transform translate(0,-50%)
+
+			.fa.fa-circle
+				color #EA6645
+				font-size 10px
+				margin-left 5px
+				vertical-align top
+
+			.msg-content
+				width 150px
+				line-height 13px
+				absolute top 50% left 57px
+				transform translate(0, -50%)
+
+				.excerpt
+					line-height 1
+					font-size 14px
+					margin-top 5px
+
+				strong a
+					transition none
+
+			.time
+				font-size 14px !important
+				absolute top 50% right 15px
+				transform translate(0, -50%)
+
+				&.reply:before
+					content "\f00c"
+					margin-right 3px
+					color $color-verde
+					display inline-block
+					font normal normal normal 14px/1 FontAwesome
+
+	.chat-view
+		opacity 0
+
+		.chat-header
+			height 35px
+			padding-top 5px
+			text-align center
+			position relative
+			background-color $color-azul
+			border-bottom 1px solid #BBC4CF
+
+			.remove-chat, .go-back
+				top 50%
+				color #FFF
+				cursor pointer
+				position absolute
+				transform translate(0,-50%)
+
+				&:hover
+					color $color-gris
+
+			.remove-chat
+				right 15px
+				font-size 23px
+
+			.go-back
+				left 15px
+				font-size 30px
+
+			.name
+				display block
+				padding-top 7px
+
+				a
+					color #FFF
+
+					&:hover
+						color $color-gris
+
+			.connection
+				display block
+
+			.avatar
+				border-radius 30px
+				absolute top 0 right 0
+				border 1px solid #BBC4CF
+
+		.chat-body
+			padding 10px 0
+			overflow-y scroll
+			position relative
+
+			li
+				position relative
+
+				.avatar
+					absolute top 0 left 8px
+					border-radius 30px
+
+				.content
+					width 65%
+					color #000
+					padding 12px
+					margin-top 10px
+					max-width 185px
+					background #E2E2E2
+					word-wrap break-word
+					margin 10px 0 10px 65px
+
+					@media(max-width 800px)
+						max-width 100%
+
+					.error .fa
+						cursor pointer
+						margin-left 15px
+						color $color-todo-done
+
+						&:hover
+							color lightness($color-todo-done, 50%)
+
+				.sent
+					float left
+					margin-top 5px
+					margin-left 5px
+					margin-bottom 10px
+
+				&.self
+					.avatar
+						display none
+
+					.content
+						color #FFF
+						background #91D013
+
+	#send-reply
+		flex-inline()
+		z-index 20
+		position relative
+
+		&.sending
+			.center-element
+				opacity 1
+
+			#message_content, input[type="submit"]
+				opacity 0.5
+
+		.center-element
+			opacity 0
+			absolute top 50% left 50%
+			transform translate(-50%, -50%)
+			transition opacity $css-transition-time
+
+		#message_content
+			flex 2
+			resize none
+			height 43px
+			padding 10px
+			background #FFF
+			border-radius 0
+			margin 15px 25px
+			border 1px solid #BBC4CF
+			transition opacity $css-transition-time
+
+			&:focus
+				box-shadow 0px 0px 3px 0px $color-azul
+
+		input[type="submit"]
+			display none

@@ -1,0 +1,38 @@
+course-view-style()
+	.course-video-wrapper
+		width 100%
+		position relative
+
+		.wistia_embed
+			width 100%
+			height 100%
+			max-width 100%
+			absolute top 0 left 0
+
+	.header-course
+		transition padding-right $css-transition-time
+
+		&.sidebar-open
+			sidebar-open-style()
+
+	.course-content
+		responsive-block()
+
+		h1
+			margin-top 0
+			font-size 34px
+			color $color-gris-oscuro
+			margin-bottom base-sizes(-1)
+			
+		p
+			font-size 18px
+			line-height 1.7
+			color $color-gris-oscuro
+
+	.course-comment
+		responsive-block()
+		position relative
+		background-color $color-gris-claro
+
+		.comments-count
+			special-label-style($color-naranja)

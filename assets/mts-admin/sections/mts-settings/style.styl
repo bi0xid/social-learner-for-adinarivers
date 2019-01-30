@@ -1,0 +1,43 @@
+@import '../../../plugins/spinner.css'
+@import '../../../plugins/chosen/chosen.min.css'
+@import '../../../node_modules/toastr/build/toastr.min.css'
+
+mts-settings-page-style()
+	#mts-settings-panel
+		flex-inline()
+
+		#welcome_video_id
+			width 100%
+
+		.panel
+			width 35%
+			margin-bottom 30px
+
+		#todo_wait_time, #youtube_video
+			width 100%
+
+	#mts-settings-footer
+		height 80px
+		margin-top 30px
+		padding-top 15px
+		position relative
+		border-top 1px solid $color-gris
+
+		button
+			border 0
+			width 100%
+			color #FFF
+			padding 10px
+			cursor pointer
+			background-color $color-verde
+			transition background-color $css-transition-time
+
+			&:hover
+				background-color lightness($color-verde, 40%)
+
+		.spinner-css
+			margin-top 15px
+			transition opacity $css-transition-time
+
+			&.out
+				opacity 0

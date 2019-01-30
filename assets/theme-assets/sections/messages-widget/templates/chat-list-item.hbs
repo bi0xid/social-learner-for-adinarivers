@@ -1,0 +1,11 @@
+<li data-id="{{ data.id }}" data-user="{{ data.thread_with }}" {{#if data.is_deleted}}data-deleted="true"{{/if}}>
+	{{{ data.avatar }}}
+	<div class="msg-content">
+		<strong class="name">{{{ data.sender }}}</strong>
+		{{#unless data.leido}}
+			<i class="fa fa-circle"></i>
+		{{/unless}}
+		<span class="excerpt">{{trim data.excerpt 45 }}</span>
+	</div>
+	<span class="time{{#if data.reply}} reply{{/if}}">{{ data.time }}</span>
+</li>

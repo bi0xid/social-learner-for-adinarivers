@@ -1,0 +1,103 @@
+@import '../../../../plugins/owlCarousel/owl.carousel.css'
+
+images-modal-style()
+	.owl-carousel
+		height 100%
+
+		&.out
+			display none
+
+		.owl-stage-outer, .owl-stage, .owl-item, .image-item
+			height 100%
+
+		.image-item
+			position relative
+
+			.image-wrapper
+				width 100%
+				height 100%
+				cursor pointer
+				margin-top 40px
+				background-size contain
+				background-repeat no-repeat
+				background-position center center
+
+			p
+				color #FFF
+				font-size 18px
+				absolute top -40px left 50%
+				transform translate(-50%, 0)
+
+	 .section
+			padding 0
+			height 100%
+			position relative
+
+			&.image
+				flex-vertical()
+
+				img, .content
+					width 40%
+					margin auto
+
+				.content
+					text-align center
+
+					h5
+						font-size 22px
+
+					p
+						margin 15px 0
+						font-size 18px
+
+					h5, p
+						color #FFF
+						line-height 1.5
+
+					button
+						font-size 18px
+						background-color $color-todo-done
+
+			&.video
+				text-align center
+
+				.video_iframe, .wistia_embed
+					height 100%
+
+				.video_iframe
+					transition opacity $css-transition-time
+
+					&.out
+						opacity 0
+
+				.loading
+					absolute-center()
+					transition opacity $css-transition-time
+
+					&.out
+						opacity 0
+
+					.fa
+						color $color-gris-claro
+
+				button
+					font-size 18px
+					margin-top 15px
+					background-color $color-todo-done
+
+			&.out
+				display none
+
+	.modal-footer
+		position relative
+		text-align center
+
+		button
+			margin-top 15px
+			background-color $color-todo-done
+
+		.fa
+			color #FFF
+			cursor pointer
+			font-size 50px
+			absolute bottom 0 right 0

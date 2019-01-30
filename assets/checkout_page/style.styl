@@ -1,0 +1,398 @@
+@import 'nib'
+@import '../includes/helpers.styl'
+
+$color-verde-checkout = #92D36E
+$color-lila-checkout  = #C238EB
+$small-font-size      = 16px
+
+@font-face
+	font-family JennaSue
+	font-style normal
+	src url(../../fonts/JennaSue.ttf)
+
+// Start with the style
+body.checkout-page
+	background-color #FFF
+
+	.woocommerce-error
+		margin 0 0 base-sizes(0) 0
+
+	.top-subheadline
+		font-weight 100
+		margin-bottom base-sizes(0)
+
+	.top-headline
+		font-weight 100
+		white-space nowrap
+
+		@media(max-width 500px)
+			white-space initial
+
+	// Main layout responsive
+	#left-form
+		width 50%
+
+		@media(max-width 767px)
+			width 100%
+
+	#right-float-img
+		width 40%
+		right 5%
+
+		@media(max-width 767px)
+			display: none
+
+	// Main Style
+	#left-form
+		#coupons_field_new
+			margin base-sizes(-1) 0
+
+			&.loading
+				opacity .5
+				pointer-events none
+
+			.input-text, .button
+				width 100%
+
+			.input-text:focus
+				outline 0
+				outline thin dotted \9
+				color $color-gris-oscuro
+				border-color $color-amarillo
+				background-color rgba(244, 235, 73, 0.1)
+				box-shadow inset 0 1px 1px rgba(244, 235, 73, 0.24),0 0 8px rgba(244, 235, 73, 0.24)
+
+			.button
+				border none
+				box-shadow none
+				background-color $color-lila-checkout
+
+				&:active, &:focus
+					outline none
+
+				&:hover
+					background-color lightness($color-lila-checkout, 50%)
+
+			.alerts
+				clear both
+				display none
+				margin-top 10px
+
+		.woocommerce-message.x-alert-info, .woocommerce-info.x-alert-info
+			display none !important
+
+		.woocommerce-message
+			margin base-sizes() 0 0 0
+
+		.step-checkout
+			font-size 19px
+			font-weight 100
+			text-transform uppercase
+			margin base-sizes(-1) 0 base-sizes(-1) 0
+
+		#customer_details
+			.col-2
+				display none
+
+			.woocommerce-billing-fields input:focus
+				outline 0
+				outline thin dotted \9
+				color $color-gris-oscuro
+				border-color $color-amarillo
+				background-color rgba(244, 235, 73, 0.1)
+				box-shadow inset 0 1px 1px rgba(244, 235, 73, 0.24),0 0 8px rgba(244, 235, 73, 0.24)
+
+		#opc-product-selection
+			p, ul
+				margin 0
+
+			ul
+				list-style none
+
+				.product-item
+					margin-bottom base-sizes(-2)
+
+					p:not(.most-popular-label), .dash, .price
+						display inline-block
+
+					.subscription-details
+						display none
+
+					.price.discount .amount
+						color #999
+						text-decoration line-through
+
+					.coupon_discount
+						color #FF2A13
+						margin-left 5px
+
+					label
+						margin 0
+						cursor pointer
+						padding 10px 15px
+						min-height base-sizes(0)
+						font-size $small-font-size
+						background-color $color-sidebar
+
+						&:hover
+							background-color lightness($color-sidebar, 90%)
+
+						input
+							margin 8px 20px 0 10px
+
+					.installments-label
+						width 100%
+						background-color #FFF
+						padding 5px 30px 5px 60px
+						border 1px solid $color-sidebar
+
+			.most-popular-label
+				color #FFF
+				flex-vertical()
+				height base-sizes()
+				font-size $small-font-size
+				background-color $color-verde-checkout
+
+		#order_review
+			&.installments
+				li.payment_method_WorldPayCw_CreditCard, li.payment_method_bitcoin
+					display none !important
+					pointer-events none !important
+
+			.opc_order_review
+				display none
+
+			.payment_methods
+				padding 15px
+				border 2px solid $color-gris
+
+				li
+					margin 0
+
+					&:last-child
+						.payment_label
+							border none
+							margin-bottom 0
+
+						.payment_box p
+							margin-bottom 15px
+
+					.payment_label
+						cursor pointer
+						padding 15px 0
+						position relative
+						margin 0 15px 20px 15px
+						border-bottom 1px solid $color-gris
+
+						.payment_logo
+							display block
+							absolute top 50% right 0
+							transform translate(0, -50%)
+
+							&.single-logo img
+								max-width 80px
+
+							&.logo-paypal img
+								max-width 130px
+
+								@media(max-width 370px)
+									max-width 100px
+
+								@media(max-width 370px)
+									max-width 80px
+
+							img
+								max-width 40px
+								display inline-block !important
+
+								&:not(:last-child)
+									margin-right 5px
+
+							@media(max-width 365px)
+								img
+									max-width 30px
+
+						input
+							margin-right 15px
+
+					.about_paypal
+						display none
+
+					.title
+						font-weight bold
+
+					.payment_box.payment_method_WorldPayCw_CreditCard
+						padding 10px 25px 25px 25px
+
+						> p
+							display none
+
+						label
+							text-align right
+							padding 4px 0 0 0
+
+						.worldpaycw-control-group:last-of-type
+							margin 0
+
+						.worldpaycw-card-number
+							.worldpaycw-text-field
+								width 100%
+
+							.card-brand-image-selection
+								display none !important
+
+						.worldpaycw-help-block
+							margin-left 140px
+							display none !important
+
+						.worldpaycw-card-cvc .worldpaycw-help-block
+							display block !important
+
+						.worldpaycw-select-field
+							width 50%
+
+							select
+								margin 0 !important
+								width 100% !important
+
+						@media(max-width 490px)
+							.worldpaycw-help-block
+								margin-left: 0
+
+							.worldpaycw-control-label
+								float none
+								display block
+								text-align left
+
+							.worldpaycw-controls.worldpaycw-text-field,
+							.worldpaycw-controls.worldpaycw-multi-control
+								display block
+								margin-left 0
+
+					.payment_box.payment_method_paypal, .payment_box.payment_method_worldpay, .payment_box.payment_method_bitcoin
+						p
+							font-size 16px
+							padding 0 15px
+
+		.place-order
+			.terms
+				padding 0 60px
+				text-align center
+				margin 0 0 base-sizes(-1) 0
+
+				@media(max-width 400px)
+					padding 0
+
+				input[type="checkbox"]
+					display none
+					pointer-events none
+
+		.place-order-block
+			padding 0 60px
+			text-align center
+			margin-bottom base-sizes(1)
+
+			@media(max-width 400px)
+				padding 0
+
+			#place_order
+				width 100%
+				border none
+				font-size 18px
+				box-shadow none
+				text-shadow none
+				padding-top 15px
+				height base-sizes(1)
+				text-transform uppercase
+				margin-bottom base-sizes()
+				background-color $color-lila-checkout
+
+				&:active, &:focus
+					outline none
+
+				&:hover
+					background-color lightness($color-lila-checkout, 50%)
+
+			.last-checkout-info
+				flex-vertical()
+
+				.guarantee, .geotrust_content
+					width 50%
+
+				.geotrust_content img
+					max-width 90px
+					padding-bottom 10px
+
+				.separation
+					width 1px
+					display: none
+					height 70px
+					background-color $color-gris
+
+				.guarantee p
+					margin 0
+					padding 0 20px
+
+				@media(max-width 495px)
+					flex-inline()
+
+					.guarantee, .geotrust_content
+						width 100%
+
+					.separation
+						display none
+
+					.geotrust_content
+						margin-top base-sizes(0)
+
+	#right-float-img
+		position fixed
+
+		.x-text
+			absolute top 0 right 0
+
+			p
+				margin 0
+				color #000
+				width 190px
+				line-height 1
+				font-size 42px
+				font-family JennaSue
+
+		@media(max-width 930px)
+			.x-text
+				right -30px
+
+			img
+				padding-right 50px
+
+	.top-headline
+		margin-top 0
+
+	// Style for the TOS Modal
+	#checkoutpopupform
+		border none
+
+		.simplepopupClose:hover
+			color $color-gris-oscuro
+
+		.modal-header h3
+			font-weight 100
+
+		.modal-body
+			min-height base-sizes(1)
+
+		.modal-footer
+			height base-sizes(0)
+
+			#close_popup
+				border none
+				color #FFF
+				border-radius 0
+				flex-vertical()
+				height base-sizes(0)
+				font-size $small-font-size
+				background-color $color-verde
+
+				&:hover
+					background-color lightness($color-verde, 40%)

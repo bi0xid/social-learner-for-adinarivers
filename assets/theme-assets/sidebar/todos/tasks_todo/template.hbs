@@ -1,0 +1,93 @@
+<div class="modal-overlay tasks-todo" {{#if this.task_id}}data-id="{{ this.task_id }}"{{/if}}>
+	<p class="close-modal">x</p>
+	<div class="modal-content">
+		<div class="modal-body">
+
+			{{!-- Intro --}}
+			<div class="section intro {{#unless this.content.intro.video}}image{{/unless}} {{#if this.content.intro.video}}video{{/if}}">
+				{{#if this.content.intro.video}}
+					<div class="video_iframe out" data-id="{{ this.content.intro.video }}">
+						<div id="wistia_{{ this.content.intro.video }}" class="wistia_embed">
+							Strange! A video should appear right here. Pease reload the page and try again.
+						</div>
+					</div>
+
+					<div class="loading">
+						<i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+					</div>
+
+					<button class="next-page">Get Started</button>
+				{{else}}
+					<img src="{{ this.content.intro.image }}" alt="Intro image">
+					<div class="content">
+						<h5>{{ this.content.intro.title }}</h5>
+						<p>{{{ this.content.intro.desc }}}</p>
+						<button class="next-page">Get Started</button>
+					</div>
+				{{/if}}
+			</div>
+
+			{{!-- Content --}}
+			{{#each this.content.content }}
+				<div class="section out page-{{ @index }} {{#if this.video}}video{{/if}} {{#if this.audio}}audio {{else}} image{{/if}}" style="opacity:0;">
+
+					<i class="fa fa-angle-left" aria-hidden="true"></i>
+
+					{{#if this.video}}
+						<div class="video_iframe out" data-id="{{ this.video }}">
+							<div id="wistia_{{ this.video }}" class="wistia_embed">
+								Strange! A video should appear right here. Pease reload the page and try again.
+							</div>
+						</div>
+
+						<div class="loading">
+							<i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+						</div>
+
+					{{else}}
+						<h5>{{ this.title }}</h5>
+						<img src="{{ this.image }}" alt="Content Image">
+
+						<div class="content">
+							{{#if this.audio}}
+								<audio class="selected_audio" controls>
+									<source src="{{ this.audio }}">
+								</audio>
+							{{else}}
+								<p>{{{ this.content.intro.desc }}}</p>
+							{{/if}}
+						</div>
+					{{/if}}
+
+					<i class="fa fa-angle-right" aria-hidden="true"></i>
+
+				</div>
+			{{/each}}
+
+			{{!-- Outro --}}
+			<div class="section outro out {{#unless this.content.outro.video}}image{{/unless}} {{#if this.content.outro.video}}video{{/if}}" style="opacity:0;">
+				{{#if this.content.outro.video}}
+					<div class="video_iframe out" data-id="{{ this.content.outro.video }}">
+						<div id="wistia_{{ this.content.outro.video }}" class="wistia_embed">
+							Strange! A video should appear right here. Pease reload the page and try again.
+						</div>
+					</div>
+
+					<div class="loading">
+						<i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+					</div>
+
+					<button class="mark-as-done">Finish</button>
+				{{else}}
+					<img src="{{ this.content.outro.image }}" alt="Intro image">
+					<div class="content">
+						<h5>{{ this.content.outro.title }}</h5>
+						<p>{{{ this.content.outro.desc }}}</p>
+						<button class="mark-as-done">Complete this ToDo</button>
+					</div>
+				{{/if}}
+			</div>
+
+		</div>
+	</div>
+</div>

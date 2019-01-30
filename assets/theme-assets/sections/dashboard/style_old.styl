@@ -1,0 +1,146 @@
+$transition-time = 1.2s
+
+dashboard-page-style()
+	.above-fold
+		position relative
+
+		#welcome-video
+			width 100%
+			position absolute
+			transition opacity $transition-time
+
+			.video-overlay
+				opacity .6
+				width 100%
+				height 100%
+				z-index 2000
+				display none
+				absolute top 0 left 0
+				background-color #000
+				transition opacity .3s
+
+				&.out
+					opacity 0
+					pointer-events none
+
+				.content
+					absolute top 50% left 25px
+					transform translate(0, -50%)
+
+					h2, p, i
+						color #FFF
+
+					p
+						margin 10px 0
+						font-size 18px
+
+					i
+						margin-top 15px
+
+			.video-iframe
+				width 100%
+				height 100%
+
+				.wistia_embed
+					height 100%
+
+			&.out
+				opacity 0
+
+		#courses-loop
+			opacity 1
+			pointer-events all
+			background-size cover
+			background-position center center
+			transition opacity $transition-time
+			background-image url('https://dl.dropboxusercontent.com/u/37507878/MTS/P1070113.JPG')
+
+			&.out
+				opacity 0
+
+			.section-title
+				color #FFF
+				font-weight normal
+				absolute top 90px left 50%
+				transform translate(-50%,0)
+
+			#main-courses
+				height 100%
+				flex-vertical()
+
+				article
+					padding 0
+					margin auto
+					height 350px
+					text-align center
+					position relative
+					background-color $color-gris
+
+					a
+						height 100%
+						display block
+
+					.counter
+						padding 15px 0
+						background-color $color-amarillo
+
+						h3
+							font-weight normal
+
+							span
+								display block
+
+							strong span
+								display inline-block
+
+					.metadata
+						padding 22px
+						font-size 18px
+
+					.footer
+						width 100%
+						text-align center
+						absolute bottom 15px left 0
+
+						h3
+							color #FFF
+							padding 0 15px
+							overflow ellipsis
+							font-weight normal
+
+					&.bloqued
+						background-color $color-gris-oscuro
+
+						.fa
+							color #FFF
+							font-size 40px
+							absolute top 50% left 50%
+							transform translate(-50%,-50%)
+
+		#view-video-again
+			cursor pointer
+			absolute bottom 35px left 35px
+			transition all $css-transition-time
+
+			.fa
+				color #FFF
+				font-size 28px
+
+			&:hover
+				color $color-gris
+
+			&.out
+				opacity 0
+				pointer-events none
+
+	.below-fold
+		responsive-block()
+		
+		h1
+			text-align center
+			margin-bottom 65px
+			
+		p
+			font-size 18px
+			line-height 1.8
+			color $color-gris-oscuro

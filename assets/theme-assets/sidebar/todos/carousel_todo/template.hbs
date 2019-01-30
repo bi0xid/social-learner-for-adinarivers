@@ -1,0 +1,74 @@
+<div class="modal-overlay images-modal" {{#if this.id }}data-id="{{ this.id }}"{{/if}} data-count="{{ this.content.content.length }}">
+	<p class="close-modal">x</p>
+	<div class="modal-content">
+	
+		{{!-- Intro --}}
+		<div class="section intro {{#unless this.content.intro.video}}image{{/unless}} {{#if this.content.intro.video}}video{{/if}}">
+			{{#if this.content.intro.video}}
+				<div class="video_iframe out" data-id="{{ this.content.intro.video }}">
+					<div id="wistia_{{ this.content.intro.video }}" class="wistia_embed">
+						Strange! A video should appear right here. Pease reload the page and try again.
+					</div>
+				</div>
+
+				<div class="loading">
+					<i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+				</div>
+
+				<button class="next-page">Get Started</button>
+			{{else}}
+				<img src="{{ this.content.intro.image }}" alt="Intro image">
+				<div class="content">
+					<h5>{{ this.content.intro.title }}</h5>
+					<p>{{{ this.content.intro.desc }}}</p>
+					<button class="next-page">Get Started</button>
+				</div>
+			{{/if}}
+		</div>
+
+		{{!-- Outro --}}
+		<div class="section outro out {{#unless this.content.outro.video}}image{{/unless}} {{#if this.content.outro.video}}video{{/if}}" style="opacity:0;">
+			{{#if this.content.outro.video}}
+				<div class="video_iframe out" data-id="{{ this.content.outro.video }}">
+					<div id="wistia_{{ this.content.outro.video }}" class="wistia_embed">
+						Strange! A video should appear right here. Pease reload the page and try again.
+					</div>
+				</div>
+
+				<div class="loading">
+					<i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+				</div>
+
+				<button class="close-modal">Close</button>
+			{{else}}
+				<img src="{{ this.content.outro.image }}" alt="Intro image">
+				<div class="content">
+					<h5>{{ this.content.outro.title }}</h5>
+					<p>{{{ this.content.outro.desc }}}</p>
+					<button class="close-modal">Close</button>
+				</div>
+			{{/if}}
+		</div>
+
+		{{!-- Images Carousel --}}
+		<div class="owl-carousel out" style="opacity:0;">
+			{{#each this.content.content}}
+				<div class="image-item" data-order="{{ this.order }}">
+					<div class="image-wrapper" style="background-image:url({{ this.image }})"></div>
+					<p>{{ this.desc }}</p>
+					<audio>
+						<source src="{{ this.audio }}">
+					</audio>
+				</div>
+			{{/each}}
+		</div>
+
+		<div class="modal-footer">
+			<button type="button" style="opacity:0" class="mark-as-done">
+				Finish
+			</button>
+
+			<i class="fa fa-question-circle" aria-hidden="true"></i>
+		</div>
+	</div>
+</div>

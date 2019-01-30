@@ -1,0 +1,42 @@
+@import '../../../node_modules/perfect-scrollbar/dist/css/perfect-scrollbar.css'
+
+right-sidebar-activity-style()
+	.title
+		height 50px
+		display block
+		position relative
+		margin-bottom 15px
+		background-color $color-gris
+		border-bottom 1px solid $color-gris-oscuro
+
+		span
+			absolute top 50% left 15px
+			transform translate(0, -50%)
+
+	ul
+		padding 0 15px
+		overflow hidden
+		max-height 200px
+		position relative
+
+		.ps-scrollbar-y-rail
+			opacity 1 !important
+
+		li
+			position relative
+			padding-left 50px
+
+			&:not(:last-child)
+				margin-bottom 15px
+
+			.avatar
+				circle(40)
+				absolute top 0 left 0
+				background-size cover
+				background-position center center
+
+			a, .content, .time
+				display inline-block
+
+			a
+				font-weight bold

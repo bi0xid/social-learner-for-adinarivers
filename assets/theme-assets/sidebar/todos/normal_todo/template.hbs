@@ -1,0 +1,33 @@
+<div class="modal-overlay normal-todo" {{#if this.task_id}}data-id="{{ this.task_id }}"{{/if}}>
+	<p class="close-modal">x</p>
+	<div class="modal-content">
+		<div class="modal-body">
+
+			{{#each this.content}}
+				<div {{#notCondInt @index 0}}style="opacity:0;"{{/notCondInt}} class="section {{#unless this.video}}image{{/unless}} {{#if this.video}}video{{/if}} {{#notCondInt @index 0 }}out{{/notCondInt}}">
+					{{#if this.video}}
+						<div class="video_iframe out" data-id="{{ this.video }}">
+							<div id="wistia_{{ this.video }}" class="wistia_embed">
+								Strange! A video should appear right here. Pease reload the page and try again.
+							</div>
+						</div>
+
+						<div class="loading">
+							<i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+						</div>
+
+						{{{ this.button }}}
+					{{else}}
+						<img src="{{ this.image }}" alt="Intro image">
+						<div class="content">
+							<h5>{{ this.title }}</h5>
+							<p>{{{ this.desc }}}</p>
+							{{{ this.button }}}
+						</div>
+					{{/if}}
+				</div>
+			{{/each}}
+
+		</div>
+	</div>
+</div>

@@ -1,0 +1,253 @@
+@import '../../../node_modules/toastr/build/toastr.min.css'
+@import '../../../node_modules/perfect-scrollbar/dist/css/perfect-scrollbar.css'
+
+profile-page-style()
+	height 100%
+	background-color $color-gris-claro
+
+	#profile-wrapper, #image-wrapper
+		display inline-block
+		vertical-align top
+
+	#profile-wrapper
+		width 27.8%
+		padding 15px
+		absolute top 60px right 0px
+		background-color $color-gris-claro
+
+		#write_message
+			margin 0
+			padding 0
+			width 100%
+			height 30px
+			border-radius 0
+			margin-top 15px
+			background-color $color-azul
+
+		#display_social
+			width 100%
+			absolute bottom 15px left 0
+
+			&.edit
+				ul li
+					&:after, input
+						display block
+
+			p
+				padding 0 15px
+				font-size 12px
+				margin-top 15px
+				text-align center
+
+			ul
+				padding 0 15px
+				flex-vertical()
+
+				li
+					margin auto
+					cursor pointer
+					color $color-gris
+					position relative
+
+					a
+						width 100%
+						height 100%
+						display block
+						absolute top 0 left 0
+
+					&.out
+						&:after
+							display none
+
+						input
+							opacity 0
+							pointer-events none
+
+					input
+						display none
+						box-shadow none
+						border-radius 0
+						background-color #FFF
+						absolute top -45px left 50%
+						transform translate(-50%, 0)
+						border 1px solid $color-gris-oscuro
+						transition opacity $css-transition-time
+
+					&:after
+						bottom 80%
+						left 50%
+						display none
+						border solid transparent
+						content " "
+						height 0
+						width 0
+						position absolute
+						pointer-events none
+						border-color rgba(255, 255, 255, 0)
+						border-bottom-color $color-gris-oscuro
+						border-width 7px
+						margin-left -10px
+						transform rotate(180deg)
+
+					i
+						font-size 25px
+
+					for $social, $n in $socials
+						&.{$social}:hover, &.{$social}.filled, &.{$social}:not(.out)
+							color $socials-colors[$n]
+
+		#display_location
+			h4
+				font-weight 100
+
+		#display_question
+			margin-top 25px
+
+			strong
+				display block
+
+		#display_introduction, #display_question, #display_name, #display_location, #display_introduction, #display_question
+			padding 0 5px
+			position relative
+
+			.close-field, .save-field
+				left -50px
+				width 30px
+				height 30px
+				z-index 30000
+				cursor pointer
+				flex-vertical()
+				font-size 20px
+				position absolute
+				border-radius 15px
+				background-color $color-gris-claro
+
+				&:hover
+					background-color $color-gris
+
+			.save-field
+				top -20px
+				color $color-verde
+
+			.close-field
+				bottom -20px
+
+		#display_introduction, #display_question
+			.close-field
+				top 50px
+
+			.save-field
+				top 0
+
+		#display_introduction, #display_question
+			p
+				position relative
+				min-height 115px
+				max-height 150px
+
+		#display_name, #display_location, #display_introduction, #display_question
+			transition opacity $css-transition-time
+
+			&.out
+				opacity 0
+
+			.text-form
+				width 100%
+				height 100%
+				absolute top 10px left 0px
+
+				.charcounter
+					margin-top 5px
+
+					&.error
+						color $color-todo-done
+
+				textarea, button
+					width 100%
+					border-radius 0
+					box-shadow none
+
+				textarea
+					height 70%
+					border 1px solid $color-gris
+
+				button
+					height 30px
+					position relative
+					background-color $color-azul
+
+					span
+						absolute top 50% left 50%
+						transform translate(-50%, -50%)
+
+				textarea
+					resize none
+					background-color #FFF
+
+			.field-form
+				flex-vertical()
+				width 92%
+				absolute top 0px left 0px
+
+				input, button
+					height 30px
+					padding 10px
+
+				input
+					width 100%
+					font-size 18px
+					box-shadow none
+					border-radius 0
+					background-color #FFF
+					border 1px solid $color-gris
+
+				button
+					width 25%
+					position relative
+					border-radius 0
+					background-color $color-azul
+
+					span
+						absolute top 50% left 50%
+						transform translate(-50%, -50%)
+
+	#image-wrapper
+		width 69%
+		height 100%
+		position relative
+
+		.image
+			width 100%
+			height 100%
+			background-size cover
+			background-repeat no-repeat
+			background-position center center
+
+		#upload-avatar
+			#avatar_file
+				display none
+
+			#file-toggler, #file-loading
+				color $color-gris
+				z-index 20000
+				absolute top 50% left 50%
+				transform translate(-50%, -50%)
+
+				&.out
+					opacity 0
+
+			#file-toggler
+				cursor pointer
+				font-size 50px
+				transition all $css-transition-time
+
+				&:hover
+					font-size 52px
+					color $color-gris
+
+			#file-loading
+				font-size 20px
+				transition opacity $css-transition-time
+
+				&.out
+					pointer-events none

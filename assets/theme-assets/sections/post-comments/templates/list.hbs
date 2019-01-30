@@ -1,0 +1,44 @@
+<ul class="comment" data-count="{{ this.total_comments }}" style="opacity:0;">
+	{{#each this.comments}}
+		<li class="comment {{#if this.childrens }}has-children{{/if}}">
+			<div class="avatar" style="background-image:url({{ this.user_avatar }})"></div>
+
+			<a class="user_name" href="{{ this.comment_author_url }}">{{ this.comment_author }}</a>
+
+			<div class="comment-body">
+				<p>{{ this.comment_content }}</p>
+			</div>
+
+			<div class="comment-footer">
+				<a href="#" data-user="{{ this.comment_author }}" data-id="{{ this.comment_ID }}" class="reply">
+					<span>Reply</span>
+				</a>
+				<div class="rating">
+					{{{ this.thumbs_vote_btns }}}
+				</div>
+			</div>
+
+			{{#if this.childrens }}
+				<ul class="childrens">
+					{{#each this.childrens }}
+						<li class="comment children">
+							<div class="avatar" style="background-image:url({{ this.user_avatar }})"></div>
+
+							<a class="user_name" href="{{ this.comment_author_url }}">{{ this.comment_author }}</a>
+
+							<div class="comment-body">
+								<p>{{ this.comment_content }}</p>
+							</div>
+
+							<div class="comment-footer">
+								<div class="rating">
+									{{{ this.thumbs_vote_btns }}}
+								</div>
+							</div>
+						</li>
+					{{/each}}
+				</ul>
+			{{/if}}
+		</li>
+	{{/each}}
+</ul>

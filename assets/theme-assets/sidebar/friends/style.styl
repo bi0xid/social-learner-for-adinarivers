@@ -1,0 +1,37 @@
+friends-tab-style()
+	.filters
+		padding 0
+		margin 20px 0
+
+		ul
+			flex-inline()
+
+			li
+				margin auto
+
+				a:hover, a.in
+					color #EA6645
+
+	.friends-container
+		li
+			flex-inline()
+			padding 0 12px
+
+			&:not(:last-child)
+				margin-bottom 15px
+
+			.item-avatar, .item
+				margin auto
+
+			.item-avatar
+				flex 1
+				
+				img
+					border-radius 40px
+
+			.item .item-title a
+				font-weight bold
+
+			.item-meta
+				width 160px
+				display block
